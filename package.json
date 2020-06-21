@@ -4,8 +4,8 @@
   "description": "to monitor the due dates of bills payment",
   "main": "server.js",
   "scripts": {
-    "start": "node server/server.js",
-    "dev": "nodemon server/server.js"
+    "start": "node server.js",
+    "dev": "nodemon server.js"
   },
   "author": "Emely Diaz",
   "license": "ISC",
