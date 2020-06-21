@@ -38,7 +38,7 @@ app.use('/dueLists/txn', txnRoute)
 const historyRoute = require('./routes/History.route')
 app.use('/history', historyRoute)
 
-const usersRoute = require('./routes/users.route')
+const usersRoute = require('./routes/Users.route')
 app.use('/user', usersRoute)
 
 const settingsRoute = require('./routes/UserSettings.route')
