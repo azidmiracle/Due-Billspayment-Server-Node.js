@@ -7,6 +7,10 @@ const mongoose = require("mongoose");
 
 const dueLists = require("../model/DueList.model");
 
+router.get("/",(req,res)=>{
+  res.send("hello world")
+})
+
 //Aggregation function
 router.get("/:user_id", async (req, res, next) => {
   //res.send("Getting data");
