@@ -17,7 +17,6 @@ router.get("/:username,:password", async (req, res, next) => {
 
 // Create one user
 router.post("/", async (req, res, next) => {
-  //console.log(req.body)
   const user = new User({
     _id: new mongoose.Types.ObjectId(),
     username: req.body.username,

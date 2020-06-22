@@ -1,6 +1,9 @@
+
+//MODEL FOR THE DUE LIST. SO WHEN INSERTED TO THE MONGODB , ALL DATA ARE THE SAME
 const mongoose = require("mongoose");
 const { ObjectId } = require("mongodb");
 
+//CHILD OF THE duleListSchema
 const txn=mongoose.Schema({
   date_paid:{
     type: Date,
@@ -24,7 +27,7 @@ const duleListSchema = mongoose.Schema({
   scheduled_day: Number,
   amount: Number,
   currency: String,
-  txn: [txn],
+  txn: [txn],//CHILD SCHEMA
 });
 
 module.exports = mongoose.model("duelists", duleListSchema);
