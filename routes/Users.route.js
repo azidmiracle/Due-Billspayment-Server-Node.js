@@ -2,14 +2,21 @@ const express = require("express");
 const router = express.Router();
 const mongoose = require("mongoose");
 
+const bcrypt = require('bcrypt');
+const saltRounds = 10;
+
 const User = require("../model/Users.model");
 
 // Get  user
 router.get("/:username,:password", async (req, res, next) => {
   //res.send("Getting data");
-    try{
-        const user = await User.findOne({username:req.params.username,password:req.params.password},{password:0,name:0,image:0})
-        res.json(user)
+    try{       
+        //const user = await User.findOne({username:req.params.username,password:req.params.password},{password:0,name:0,image:0})
+        const user = await User.findOne({username:req.params.username},{name:0,image:0})
+        const match = await bcrypt.compare(req.params.password, user.password);
+        if(match){
+          res.json(user)
+        }     
     }catch (err) {
         res.json(err);
       }
@@ -28,10 +35,13 @@ router.get("/:username", async (req, res, next) => {
 
 // Create one user
 router.post("/", async (req, res, next) => {
+  const hashedPwd = bcrypt.hashSync(req.body.password, saltRounds);
   const user = new User({
     _id: new mongoose.Types.ObjectId(),
     username: req.body.username,
-    password: req.body.password,
+    password:hashedPwd, //req.body.password,
+    name: req.body.name,
+    
   });
   try {
     const savedUser = await user.save();
