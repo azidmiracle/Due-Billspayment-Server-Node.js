@@ -15,6 +15,17 @@ router.get("/:username,:password", async (req, res, next) => {
       }
 });
 
+// check if user exists
+router.get("/:username", async (req, res, next) => {
+  //res.send("Getting data");
+    try{
+        const user = await User.findOne({username:req.params.username},{password:0,name:0,image:0})
+        res.json(user)
+    }catch (err) {
+        res.json(err);
+      }
+});
+
 // Create one user
 router.post("/", async (req, res, next) => {
   const user = new User({
