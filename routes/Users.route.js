@@ -16,7 +16,8 @@ router.get("/:username,:password", async (req, res, next) => {
         const match = await bcrypt.compare(req.params.password, user.password);
         if(match){
           res.json(user)
-        }     
+        }
+             
     }catch (err) {
         res.json(err);
       }

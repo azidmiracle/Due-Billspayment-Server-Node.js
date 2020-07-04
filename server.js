@@ -1,3 +1,5 @@
+require('dotenv').config()
+
 const bodyParser = require("body-parser");
 
 const express = require("express");
@@ -11,7 +13,7 @@ app.use(cors());
 app.use(bodyParser.json());
 
 mongoose.connect(
-  "mongodb+srv://emelydiaz:1234@vue-express-mongo-rlj0q.mongodb.net/vue-express?retryWrites=true&w=majority",//this is the MongoDB URL
+  process.env.DATABASE_URL,//this is the MongoDB URL
   { useNewUrlParser: true }
 );
 const db = mongoose.connection;
