@@ -15,12 +15,12 @@ THIS PART IS GETTING ALL THE TRANSACTION
 IN ORDER TO DISPLAY THE PREVIOUS TRANSACTIONS
 */
 //Aggregation function
-router.get("/:user_id", async (req, res, next) => {
+router.get("/:user_id/:noMonth", async (req, res, next) => {
   //res.send("Getting data");
   try {
     let todayDate = new Date(); //get the date today
-
-    let prevMonth = new Date(todayDate.setMonth(todayDate.getMonth() - 12)); //get the date previous 12 months
+    let noMonth=req.params.noMonth
+    let prevMonth = new Date(todayDate.setMonth(todayDate.getMonth() - noMonth)); //get the date previous months
 
     const due = await dueLists.aggregate([
       {

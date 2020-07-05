@@ -12,10 +12,17 @@ router.get("/:username,:password", async (req, res, next) => {
   //res.send("Getting data");
     try{       
         //const user = await User.findOne({username:req.params.username,password:req.params.password},{password:0,name:0,image:0})
-        const user = await User.findOne({username:req.params.username},{name:0,image:0})
+        const user = await User.findOne({username:req.params.username},{name:0,image:0,email:0,resetPasswordExpires:0,resetPasswordToken:0})
         const match = await bcrypt.compare(req.params.password, user.password);
         if(match){
-          res.json(user)
+          let newUser={
+            _id:user._id,
+            username:user.username,
+          }
+          res.json(newUser)
+        }
+        else{
+          res.json(0)
         }
              
     }catch (err) {
@@ -40,6 +47,7 @@ router.post("/", async (req, res, next) => {
   const user = new User({
     _id: new mongoose.Types.ObjectId(),
     username: req.body.username,
+    email: req.body.email,
     password:hashedPwd, //req.body.password,
     name: req.body.name,
     
