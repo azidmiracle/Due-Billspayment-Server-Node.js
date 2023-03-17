@@ -77,7 +77,43 @@ The following diagrams are created using MS Excel software
 ![architectural_1](https://user-images.githubusercontent.com/45925710/225840757-57739f83-10c1-4323-b0c6-864be19329d6.JPG)
 
 Install via NPM    
-    `npm install bcrypt`
+    `npm install bcrypt`  
+A detailed explanation on how to use this API is in this <https://www.npmjs.com/package/bcrypt>.
+    
+ ![encryptpwd](https://user-images.githubusercontent.com/45925710/225844405-98053d70-9c5f-4d81-a858-b25f226f49e3.JPG)
+ 
+ A detailed explanation on how to use this API is in this website <https://nodejs.org/api/crypto.html#crypto_crypto_randombytes_size_callback>.  
 
+In the javascript file, the following code is added.  
+
+   `require("crypto")`  
+
+In order for the token to be sent automatically to the registered e-mail address, we required an SMTP API.
+I chose Elatic Email API since it is free and easy to use. The documentation also is well-written. Please check the Elastic website for details.  
+
+   `var client = elasticemail.createClient({`  
+   `username: "aaaa",`  
+   `apiKey:`  
+   `process.env.SMTP_API_KEY,`  
+   `});`  
+
+![gcalendar](https://user-images.githubusercontent.com/45925710/225845331-bb18b76b-4a49-4907-b4ee-5d799b1ade4b.JPG)
+
+In order for the application to access the Google Services, an Google Authentication is required.  
+
+## Interface Design
+
+![interface_login](https://user-images.githubusercontent.com/45925710/225845720-5208010c-8edd-4041-8989-50ec7563d101.JPG)
+![interface_registration](https://user-images.githubusercontent.com/45925710/225845815-9e23bc2c-4c75-4e4c-b8b2-5bc17601cb25.JPG)
+![interface_resetpwd](https://user-images.githubusercontent.com/45925710/225845804-3d075a51-0dd6-4599-ad7b-41c19c4f81d4.JPG)
+![interface_settings](https://user-images.githubusercontent.com/45925710/225845811-d6a77102-52b6-4e8c-b4f2-009fe7f3a13f.JPG)
+![interface_viewtxnhistory_1](https://user-images.githubusercontent.com/45925710/225845970-72df1514-9f4d-426b-aae1-6fe726d7c6d1.JPG)
+![interface_viewtxnhistory_2](https://user-images.githubusercontent.com/45925710/225845981-f43bd139-951e-457a-9c3b-84fd90b27f85.JPG)
+![interface_addbill](https://user-images.githubusercontent.com/45925710/225845986-1619bf72-9206-4aa2-b3d4-bb7423786975.JPG)
+![interface_addtxn](https://user-images.githubusercontent.com/45925710/225845989-082c66bc-956b-484e-90e4-22e5a471ab07.JPG)
+![interface_codeverification](https://user-images.githubusercontent.com/45925710/225845991-550e0c04-fb7a-45df-8b9c-c39f5d9451f5.JPG)
+![interface_editbill](https://user-images.githubusercontent.com/45925710/225845994-8690dc8d-0fe1-4d50-994a-1fde8de4f7ae.JPG)
+![interface_home](https://user-images.githubusercontent.com/45925710/225845996-5ee485de-bb71-48e3-85af-bc57695df91e.JPG)
+![interface_viewbill](https://user-images.githubusercontent.com/45925710/225846001-18b55c5b-c87d-42f4-b8b2-e5415d1480fe.JPG)
 
 
