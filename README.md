@@ -148,10 +148,10 @@ Server-Side: <https://github.com/azidmiracle/Due-Billspayment-Server-Node.js>
 1. Mobile and Desktop Platform  
 The server-side and client-side is deployed in the Heroku. The following code shows how to deploy to Heroku.  
 
-   `heroku create bills-payment-lists`
-   `heroku git:remote --app bills-payment-lists`
-   `git commit -am "remove dist fromgit ignore"`
-   `git push heroku master`  
+   `heroku create bills-payment-lists`  
+   `heroku git:remote --app bills-payment-lists`  
+   `git commit -am "remove dist fromgit ignore"`  
+   `git push heroku master`    
 
 2. Android Platform  
 In order for the ionic/vue to be able to deploy to the android platform, we should use Capacitor. It allows to run the application across desktop, mobile and android platforms.  
