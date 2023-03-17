@@ -158,7 +158,7 @@ In order for the ionic/vue to be able to deploy to the android platform, we shou
 
 The following code is done in order to add android platform.
 
-   `npm run build`
-   `npx cap copy`
-   `npx cap add android`
-   `npx cap open android`
+   `npm run build`  
+   `npx cap copy`  
+   `npx cap add android`  
+   `npx cap open android`  
