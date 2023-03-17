@@ -116,4 +116,49 @@ In order for the application to access the Google Services, an Google Authentica
 ![interface_home](https://user-images.githubusercontent.com/45925710/225845996-5ee485de-bb71-48e3-85af-bc57695df91e.JPG)
 ![interface_viewbill](https://user-images.githubusercontent.com/45925710/225846001-18b55c5b-c87d-42f4-b8b2-e5415d1480fe.JPG)
 
+## Software Implementation
+1. Programming Language  
+The project is using Javascript as the main programming language.  
 
+For the server-side, NodeJS is used for the programming language.  
+
+2. Framework  
+Just a little background on why I chose VueJS over Angular or React. In May 2020, I tried to study AngularJS to build a mobile application but it seems it was too steep for me. So I googled which one best for the beginner programmer. I read some topics regarding the difference between VueJS, ReactJs, and AngularJS. Some say that for a beginner like me, VueJS is a better start to learn. Without hesitation, I tried it by getting my hands dirty, and true enough I was in love with Vue. After that, I was thinking to develop my app which could be beneficial to me (first).  
+
+This application is using Ionic Framework on top of VueJS.
+
+3. APIS  
+The following are the API's used in the project:  
+
+Mongoose  
+Bycrypt  
+crypto  
+Google Api  
+Elastic Email (SMTP) Api  
+Database Type  
+I decided to use MongoDB (NoSQL) as the database. The sandbox type is free.  
+
+4. Code  
+For the complete code, please refer to the following github link.  
+
+Client-Side: <https://github.com/azidmiracle/Due-Billspayment-Client-Vue-Axios>  
+Server-Side: <https://github.com/azidmiracle/Due-Billspayment-Server-Node.js>  
+
+## Software Deployment
+1. Mobile and Desktop Platform  
+The server-side and client-side is deployed in the Heroku. The following code shows how to deploy to Heroku.  
+
+   `heroku create bills-payment-lists`
+   `heroku git:remote --app bills-payment-lists`
+   `git commit -am "remove dist fromgit ignore"`
+   `git push heroku master`  
+
+2. Android Platform  
+In order for the ionic/vue to be able to deploy to the android platform, we should use Capacitor. It allows to run the application across desktop, mobile and android platforms.  
+
+The following code is done in order to add android platform.
+
+   `npm run build`
+   `npx cap copy`
+   `npx cap add android`
+   `npx cap open android`
